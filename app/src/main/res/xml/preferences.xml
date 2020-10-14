@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="switch_preference_1"
+        android:title="Daily Notifications" />
+
+    <ListPreference
+        android:title="Sort By"
+        android:defaultValue="false"
+        android:key="list_preference_1"
+        android:entries="@array/sort_by_names"
+        android:entryValues="@array/sort_by_values"/>
+
+    <ListPreference
+        android:title="Night Mode"
+        android:defaultValue="false"
+        android:key="list_preference_2"
+        android:entries="@array/night_mode_names"
+        android:entryValues="@array/night_mode_values"
+        android:summary="Select a dark or light theme"/>
+
+    <ListPreference
+        android:title="No of options"
+        android:defaultValue="false"
+        android:key="list_preference_3"
+        android:entries="@array/No_of_options_names"
+        android:entryValues="@array/No_of_options_values"/>
+
+
+</PreferenceScreen>

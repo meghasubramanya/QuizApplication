@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="sort_by_names">
+        <item>State</item>
+        <item>Capital</item>
+        <item>ID</item>
+    </string-array>
+    <string-array name="sort_by_values">
+        <item>State</item>
+        <item>Capital</item>
+        <item>ID</item>
+    </string-array>
+
+
+    <string-array name="No_of_options_names">
+        <item>Three</item>
+        <item>Four</item>
+    </string-array>
+    <string-array name="No_of_options_values">
+        <item>Three</item>
+        <item>Four</item>
+    </string-array>
+
+    <string-array name="night_mode_names">
+        <item>Auto</item>
+        <item>Night Mode ON</item>
+        <item>Night Mode OFF</item>
+    </string-array>
+    <string-array name="night_mode_values">
+        <item>Auto</item>
+        <item>Night Mode ON</item>
+        <item>Night Mode OFF</item>
+    </string-array>
+
+</resources>
