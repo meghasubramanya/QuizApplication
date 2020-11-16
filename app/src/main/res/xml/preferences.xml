@@ -13,8 +13,7 @@
         android:defaultValue="false"
         android:key="list_preference_1"
         android:entries="@array/sort_by_names"
-        android:entryValues="@array/sort_by_values"
-        app:defaultValue="id"/>
+        android:entryValues="@array/sort_by_values" />
 
     <ListPreference
         android:title="Night Mode"
@@ -29,8 +28,6 @@
         android:defaultValue="false"
         android:key="list_preference_3"
         android:entries="@array/No_of_options_names"
-        android:entryValues="@array/No_of_options_values"
-        app:defaultValue="Four"/>
-
+        android:entryValues="@array/No_of_options_values" />
 
 </PreferenceScreen>
