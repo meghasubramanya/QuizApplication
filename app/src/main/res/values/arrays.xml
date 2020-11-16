@@ -7,9 +7,9 @@
         <item>ID</item>
     </string-array>
     <string-array name="sort_by_values">
-        <item>State</item>
-        <item>Capital</item>
-        <item>ID</item>
+        <item>state_name</item>
+        <item>capital_name</item>
+        <item>id</item>
     </string-array>
 
 

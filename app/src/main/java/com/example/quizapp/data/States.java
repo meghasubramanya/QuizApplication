@@ -6,7 +6,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "state_table")
-public class State {
+public class States {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -17,19 +17,19 @@ public class State {
     @ColumnInfo(name = "capital_name")
     private String Capital;
 
-    public State()
+    public States()
     {
 
     }
 
-    public State(int id, String state, String capital) {
+    public States(int id, String state, String capital) {
         this.id = id;
         State = state;
         Capital = capital;
     }
 
     @Ignore
-    public State(String state, String capital) {
+    public States(String state, String capital) {
         State = state;
         Capital = capital;
     }
@@ -58,7 +58,7 @@ public class State {
         Capital = capital;
     }
 
-    public boolean equals(State state)
+    public boolean equals(States state)
     {
         return (State== state.getState())&& (Capital==state.getCapital());
     }

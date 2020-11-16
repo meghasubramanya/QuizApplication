@@ -10,7 +10,7 @@ import androidx.room.RawQuery;
 import androidx.room.Update;
 import androidx.sqlite.db.SupportSQLiteQuery;
 
-import com.example.quizapp.data.State;
+import com.example.quizapp.data.States;
 
 import java.util.List;
 
@@ -18,17 +18,23 @@ import java.util.List;
 public interface StateDao {
 
     @Query("SELECT * FROM state_table")
-    DataSource.Factory<Integer,State> getAllStates();
+    DataSource.Factory<Integer, States> loadAllStates();
 
-    @RawQuery(observedEntities = State.class)
-    DataSource.Factory<Integer, State> getAllSortedStates(SupportSQLiteQuery query);
+    @RawQuery(observedEntities = States.class)
+    DataSource.Factory<Integer, States> getAllSortedStates(SupportSQLiteQuery query);
 
     @Insert
-     void insert(State state);
+     void insert(States state);
 
     @Delete
-     void delete(State state);
+     void delete(States state);
 
     @Update
-     void update(State state);
+     void update(States state);
+
+    @Query("SELECT * FROM state_table ORDER BY RANDOM() LIMIT 1")
+    States getRandomState();
+
+    @RawQuery(observedEntities = States.class)
+    LiveData<List<States>> getQuizStates(SupportSQLiteQuery supportSQLiteQuery);
 }

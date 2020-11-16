@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizapp.R;
-import com.example.quizapp.data.State;
+import com.example.quizapp.data.States;
 
 public class StateViewHolder extends RecyclerView.ViewHolder {
 
@@ -19,7 +19,7 @@ public class StateViewHolder extends RecyclerView.ViewHolder {
         tvCapitalName=itemView.findViewById(R.id.tvCapitalName);
     }
 
-    public void bind(State state)
+    public void bind(States state)
     {
         tvStateName.setText(state.getState());
         tvCapitalName.setText(state.getCapital());

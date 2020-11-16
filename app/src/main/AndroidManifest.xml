@@ -13,7 +13,7 @@
             android:parentActivityName=".ui.MainActivity"/>
         <activity android:name=".ui.AddStateActivityy"
             android:parentActivityName=".ui.StateListActivityy"/>
-        <activity android:name=".ui.SettingsActivity"
+        <activity android:name=".settings.SettingsActivity"
             android:parentActivityName=".ui.MainActivity"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>

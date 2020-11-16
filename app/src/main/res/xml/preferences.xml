@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <SwitchPreference
         android:defaultValue="false"
         android:key="switch_preference_1"
-        android:title="Daily Notifications" />
+        android:title="Daily Notifications"
+        android:summary="Turn on to receive daily notifications"/>
 
     <ListPreference
         android:title="Sort By"
         android:defaultValue="false"
         android:key="list_preference_1"
         android:entries="@array/sort_by_names"
-        android:entryValues="@array/sort_by_values"/>
+        android:entryValues="@array/sort_by_values"
+        app:defaultValue="id"/>
 
     <ListPreference
         android:title="Night Mode"
@@ -26,7 +29,8 @@
         android:defaultValue="false"
         android:key="list_preference_3"
         android:entries="@array/No_of_options_names"
-        android:entryValues="@array/No_of_options_values"/>
+        android:entryValues="@array/No_of_options_values"
+        app:defaultValue="Four"/>
 
 
 </PreferenceScreen>

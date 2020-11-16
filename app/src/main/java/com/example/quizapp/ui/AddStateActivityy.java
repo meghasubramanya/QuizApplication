@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.quizapp.R;
-import com.example.quizapp.data.State;
+import com.example.quizapp.data.States;
 
 public class AddStateActivityy extends AppCompatActivity {
 
@@ -61,12 +61,12 @@ public class AddStateActivityy extends AppCompatActivity {
                 if(extras!=null && extras.containsKey(EXTRA_ID) )
                 {
                     int id=extras.getInt(EXTRA_ID,-1);
-                    State state1=new State(id,stateName,capitalName);
+                    States state1=new States(id,stateName,capitalName);
                     viewModel.update(state1);
                 }
                 else
                 {
-                    State state1=new State(stateName,capitalName);
+                    States state1=new States(stateName,capitalName);
                     viewModel.insert(state1);
                 }
 

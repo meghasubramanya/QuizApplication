@@ -9,9 +9,9 @@ import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 
 import com.example.quizapp.R;
-import com.example.quizapp.data.State;
+import com.example.quizapp.data.States;
 
-public class StatePagedListAdapter extends PagedListAdapter<State, StateViewHolder> {
+public class StatePagedListAdapter extends PagedListAdapter<States, StateViewHolder> {
 
     public ClickListener clickListener;
 
@@ -29,7 +29,7 @@ public class StatePagedListAdapter extends PagedListAdapter<State, StateViewHold
 
     @Override
     public void onBindViewHolder(@NonNull StateViewHolder holder, final int position) {
-        State currentState=getItem(position);
+        States currentState=getItem(position);
         if(currentState!=null)
         {
             holder.bind(currentState);
@@ -45,19 +45,19 @@ public class StatePagedListAdapter extends PagedListAdapter<State, StateViewHold
         }
     }
 
-    public static DiffUtil.ItemCallback<State> itemCallback=new DiffUtil.ItemCallback<State>() {
+    public static DiffUtil.ItemCallback<States> itemCallback=new DiffUtil.ItemCallback<States>() {
         @Override
-        public boolean areItemsTheSame(@NonNull State oldItem, @NonNull State newItem) {
+        public boolean areItemsTheSame(@NonNull States oldItem, @NonNull States newItem) {
             return oldItem.getState()==newItem.getState();
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull State oldItem, @NonNull State newItem) {
+        public boolean areContentsTheSame(@NonNull States oldItem, @NonNull States newItem) {
             return oldItem.equals(newItem);
         }
     };
 
-    public State getStateAtPosition(int position)
+    public States getStateAtPosition(int position)
     {
         return getItem(position);
     }

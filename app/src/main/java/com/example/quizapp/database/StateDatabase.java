@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.quizapp.data.State;
+import com.example.quizapp.data.States;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {State.class},version = 1,exportSchema = false)
+@Database(entities = {States.class},version = 1,exportSchema = false)
 public abstract class StateDatabase extends RoomDatabase {
 
     public static StateDatabase stateDatabaseInstance=null;
@@ -103,7 +103,7 @@ public abstract class StateDatabase extends RoomDatabase {
                 String stateName=jsonObject.getString("key");
                 String capitalName = jsonObject.getString("val");
 
-                stateDao.insert(new State(stateName,capitalName));
+                stateDao.insert(new States(stateName,capitalName));
             }
         }
         catch (Exception e)

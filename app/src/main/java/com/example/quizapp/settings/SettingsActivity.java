@@ -1,4 +1,4 @@
-package com.example.quizapp.ui;
+package com.example.quizapp.settings;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

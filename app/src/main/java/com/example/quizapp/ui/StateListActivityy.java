@@ -1,26 +1,25 @@
 package com.example.quizapp.ui;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.paging.PagedList;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.example.quizapp.R;
-import com.example.quizapp.data.State;
+import com.example.quizapp.data.States;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 public class StateListActivityy extends AppCompatActivity {
@@ -34,7 +33,9 @@ public class StateListActivityy extends AppCompatActivity {
 
     private StateViewModel viewModel;
     private StatePagedListAdapter pagedListAdapter;
-    private State state;
+    private States state;
+
+    private SharedPreferences sharedPreferences;
 
     private RecyclerView recyclerView;
     FloatingActionButton btnFloating;
@@ -45,17 +46,24 @@ public class StateListActivityy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_state_list_activityy);
 
+        viewModel = new ViewModelProvider(this).get(StateViewModel.class);
+
+        sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
+        String sort=sharedPreferences.getString("list_preference_1","id");
+        viewModel.changeSortingOrder(sort);
+
+
         recyclerView = findViewById(R.id.recyclerView);
         btnFloating = findViewById(R.id.btnFloating);
 
-        viewModel = new ViewModelProvider(this).get(StateViewModel.class);
+
         pagedListAdapter = new StatePagedListAdapter();
         recyclerView.setAdapter(pagedListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        viewModel.data.observe(this, new Observer<PagedList<State>>() {
+        viewModel.data.observe(this, new Observer<PagedList<States>>() {
             @Override
-            public void onChanged(PagedList<State> states) {
+            public void onChanged(PagedList<States> states) {
                 pagedListAdapter.submitList(states);
             }
         });
@@ -71,7 +79,7 @@ public class StateListActivityy extends AppCompatActivity {
         pagedListAdapter.setOnItemClickListener(new StatePagedListAdapter.ClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                State state = pagedListAdapter.getStateAtPosition(position);
+                States state = pagedListAdapter.getStateAtPosition(position);
                 Intent intent = new Intent(StateListActivityy.this, AddStateActivityy.class);
                 intent.putExtra(EXTRA_ID, state.getId());
                 intent.putExtra(EXTRA_STATE, state.getState());
@@ -114,6 +122,17 @@ public class StateListActivityy extends AppCompatActivity {
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
     }
+
+    private SharedPreferences.OnSharedPreferenceChangeListener listener=new SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+            if(key.equals("list_preference_1"))
+            {
+                String s=sharedPreferences.getString(key,"id");
+                viewModel.changeSortingOrder(s);
+            }
+        }
+    };
 
 }
 
